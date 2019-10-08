@@ -25,8 +25,8 @@ class ClientsTable extends Component {
         let newLast = index.last + number
         let newIndex = { first: newFirst, last: newLast }
 
-         this.setState({ index: newIndex }, function() {
-            let clients = this.props.clients.slice(index.first, index.last)
+        this.setState({ index: newIndex }, function() {
+            let clients = this.props.clients.slice(this.state.index.first, this.state.index.last)
             this.setState({ clients: clients })
         })
     }
