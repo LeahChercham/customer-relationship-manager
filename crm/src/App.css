@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  --mainTextColor: black;
+  --secondTextColor:white;
+}
+
+a{
+  text-decoration: none;
+  color: var(--secondTextColor)
+}
+
+.App-navbar{
+  height: 7vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: black;
+  color:white;
+  position:sticky;
+}
