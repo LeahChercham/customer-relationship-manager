@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import Client from './Client';
+import Search from './Search';
 
 class ClientsTable extends Component {
     constructor() {
         super()
         this.state = {
+            index: { first: 0, last: 20 }, 
             clients: [],
-            index: { first: 0, last: 20 }
+            found: [],
         }
     }
 
     componentDidMount() {
-        this.setState({ clients: this.props.clients.slice(0, 20), index: { first: 0, last: 20 } })
+        let found = this.props.clients.slice(0,20)
+        this.setState({ clients: this.props.clients.slice(0, 20), index: { first: 0, last: 20 }, found: found })
+    }
+
+    setClientsToFound = (found) => {
+        debugger
+        this.setState({found:found})
     }
 
     changeTwentyClients = (event) => {
@@ -27,19 +35,23 @@ class ClientsTable extends Component {
 
         this.setState({ index: newIndex }, function() {
             let clients = this.props.clients.slice(this.state.index.first, this.state.index.last)
-            this.setState({ clients: clients })
+            this.setState({ found: clients })
         })
     }
+
+
+    
 
     render() {
         return (
             <div>
+                <Search clients={this.state.clients} setClientsToFound={this.setClientsToFound}/>
                 {this.state.index.first === 0 ?
                     null :
                     <button onClick={this.changeTwentyClients} name="previous">See previous 20</button>
                 }
                 <button onClick={this.changeTwentyClients} name="next">See next 20</button>
-                {this.state.clients.map(c => <Client client={c} key={c._id} />)}
+                {this.state.found.map(c => <Client client={c} key={c._id} />)}
             </div>
         );
     }
