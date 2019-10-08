@@ -8,17 +8,13 @@ import Analytics from './components/Analytics';
 
 class App extends Component {
   constructor(){
-    debugger
     super()
     this.state= {
       data : []
-    
-
     }
   }
 
   async componentDidMount(){
-    debugger
     await setTimeout(() => {
       let data = require('./data.json')
       this.setState({data: data})
@@ -34,7 +30,7 @@ class App extends Component {
   
       {/* Routes below */}
       <Route path="/" exact render={() => <div>Hello</div>}/>
-      <Route path="/clients" exact render={() => <Clients />}/>
+      <Route path="/clients" exact render={() => <Clients data={this.state.data}/>}/>
       <Route path="/actions" exact render={() => <Actions />}/>
       <Route path="/analytics" exact render={() => <Analytics />}/>
   
