@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Client from './Client';
 import Search from './Search';
 import axios from 'axios'
+import Header from './Header';
 
 class ClientsTable extends Component {
     constructor() {
@@ -58,13 +59,14 @@ class ClientsTable extends Component {
     render() {
 
         return (
-            <div>
+            <div id="clientsTable">
                 <Search clients={this.state.justTwentyClients} setClientsToFound={this.setClientsToFound}/>
                 {this.state.index.first === 0 ?
                     null :
                     <button onClick={this.changeTwentyClients} name="previous">See previous 20</button>
                 }
                 <button onClick={this.changeTwentyClients} name="next">See next 20</button>
+                <Header />
                 {this.state.found.map(c => <Client updateClient={this.props.updateClient} client={c} key={c._id} getAllClients={this.getAllClients}/>)}
             </div>
         );

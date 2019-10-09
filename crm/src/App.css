@@ -2,6 +2,7 @@
   text-align: center;
   --mainTextColor: black;
   --secondTextColor:white;
+  background-color: lightgrey;
 }
 
 a{
@@ -23,6 +24,15 @@ a{
   grid-template-columns: repeat(7, 1fr)
 }
 
+.clientsHeader{
+  display:grid;
+  grid-template-columns: repeat(7,1fr);
+  height: 5vh;
+  background-color: yellow;
+  justify-items: center;
+  align-content: center;
+}
+
 .modal{
   position:absolute;
   left: 50%;
@@ -30,4 +40,8 @@ a{
   background-color: var(--mainTextColor);
   color: var(--secondTextColor);
   z-index: 10;
+}
+
+#clientsTable{
+  margin: 5vmin;
 }

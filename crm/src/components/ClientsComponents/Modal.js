@@ -37,11 +37,11 @@ class Modal extends Component {
                 <div>
                 <span><button onClick={this.closeModal}>X</button></span>
                     </div>               
-                <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.handleInput}/>
+                <input type="text" name="name" placeholder={this.props.client.name} value={this.state.name} onChange={this.handleInput}/>
                 <br/>
-                <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.handleInput}/>
+                <input type="text" name="email" placeholder={this.props.client.email} value={this.state.email} onChange={this.handleInput}/>
                 <br/>
-                <input type="text" name="country" placeholder="country" value={this.state.country} onChange={this.handleInput}/>
+                <input type="text" name="country" placeholder={this.props.client.country} value={this.state.country} onChange={this.handleInput}/>
                 <br/>
                 <button onClick={this.updateClient}>Update</button>
             </div>
