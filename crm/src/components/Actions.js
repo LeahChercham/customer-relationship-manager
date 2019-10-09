@@ -8,10 +8,17 @@ class Actions extends Component {
     constructor(){
         super()
         this.state = {
-            clients: []
+            clients: [], 
+            updateClient: {},
+            addClient: {},
         }
     }
 
+    getClientToUpdate = (client) => {
+        this.setState({updateClient:client})
+        console.log("User wants to update: " + client.name)
+    }
+ 
     getAllClients = () => {
         this.getAllClientsData()
     }
@@ -30,7 +37,7 @@ class Actions extends Component {
         return (
             <div>
                 UPDATE
-                 <ClientsInput getAllClients={this.getAllClients} clients={this.state.clients} />
+                 <ClientsInput getClientToUpdate={this.getClientToUpdate} clients={this.state.clients} />
                 <Update />
                 <Add />
             </div>
