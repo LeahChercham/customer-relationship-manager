@@ -5,9 +5,9 @@ class Update extends Component {
         super()
         this.state = {
             updateData: {
-                ownerName: "Barton Ramirez",
+                owner: "Barton Ramirez",
                 emailType: "A", 
-                declareSale: false,
+                sold: false,
             }
         }
     }
@@ -21,8 +21,15 @@ class Update extends Component {
 
     handleClick = (e) => {
         let name = e.target.name
-        debugger
-        this.props.updateUser(name, this.state.updateData)
+        if(name === "sold"){
+            let newUpdateData = {...this.state.updateData}
+            newUpdateData[name] = true
+            this.setState({updateData : newUpdateData}, () => {
+                this.props.updateUser(name, this.state.updateData)
+            })
+        } else {
+            this.props.updateUser(name, this.state.updateData)
+        }
     }
 
 
@@ -31,7 +38,7 @@ class Update extends Component {
             <div>
                 <div>
                     Transfer ownership to: 
-                <select value={this.state.updateData.ownerName} onChange={this.handleChange} name="ownerName">
+                <select value={this.state.updateData.owner} onChange={this.handleChange} name="owner">
                         <option value="Barton Ramirez">Barton Ramirez</option>
                         <option value="Emily Durham">Emily Durham</option>
                         <option value="Hull Conrad">Hull Conrad</option>
@@ -40,7 +47,7 @@ class Update extends Component {
                         <option value="Martin Massey">Martin Massey</option>
                         <option value="Stepherd Stone">Stepherd Stone</option>
                     </select>
-                    <button onClick={this.handleClick} name="transferOwner">TRANSFER</button>
+                    <button onClick={this.handleClick} name="owner">TRANSFER</button>
                 </div>
                 <div>
                     Send email: 
@@ -50,11 +57,11 @@ class Update extends Component {
                         <option value="C">C</option>
                         <option value="D">D</option>
                     </select>
-                    <button onClick={this.handleClick} name="sendEmail">SEND</button>
+                    <button onClick={this.handleClick} name="emailType">SEND</button>
                 </div>
                 <div>
                     Declare sale! 
-                    <button onClick={this.handleClick} name="declareSale">DECLARE</button>
+                    <button onClick={this.handleClick} name="sold">DECLARE</button>
                 </div>
             </div>
         ) 

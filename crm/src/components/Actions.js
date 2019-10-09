@@ -33,25 +33,18 @@ class Actions extends Component {
   async componentDidMount(){
     await this.getAllClientsData()}
 
-    updateUser = (action, data) => {
-        this[action](data)
+    updateUser = (action, updateData) => {
+        let data = {
+            id : this.state.updateClient.id,
+            action: action,
+            value : updateData[action],
+        }
+        console.log(data)
+         
     }
 
     showUpdate = (boolean) => {
         this.setState({showUpdate : boolean})
-    }
-
-
-    transferOwner = (data) =>  {
-        console.log("transfer" + data.ownerName)
-    }
-
-    sendEmail = (data) => {
-        console.log("EEEEMAIL" + data.emailType)
-    }
-
-    declareSale = (data) => {
-        console.log("SALE" + data.declareSale)
     }
 
     render() {
