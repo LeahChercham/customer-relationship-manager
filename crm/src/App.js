@@ -38,6 +38,7 @@ class App extends Component {
 }
 
   updateClient = (newData) => {
+    debugger
     axios.put("http://localhost:8000/updatePerson", newData)
   }
 
