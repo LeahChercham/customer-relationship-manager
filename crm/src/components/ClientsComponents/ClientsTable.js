@@ -23,8 +23,10 @@ class ClientsTable extends Component {
     let response = await axios.get("http://localhost:8000/clients")
     let clients = response.data
     let TwentyClients = [...clients]
+    let found = [...clients]
     let justTwentyClients = TwentyClients.slice(this.state.index.first, this.state.index.last)
-    this.setState({clients : clients, justTwentyClients: justTwentyClients})
+    found = found.slice(this.state.index.first, this.state.index.last)
+    this.setState({clients : clients, justTwentyClients: justTwentyClients, found:found})
   }
 
   async componentDidMount(){
@@ -32,6 +34,7 @@ class ClientsTable extends Component {
 
 
     setClientsToFound = (found) => {
+        debugger
         this.setState({found:found})
     }
 
@@ -50,24 +53,19 @@ class ClientsTable extends Component {
             this.setState({ found: clients, justTwentyClients: clients })
         })
     }
-        // updateState = (clients, found) => {
-        //     this.setState({ clients: clients, index: { first: 0, last: 20 }, found: found })
-        // }
+
 
     render() {
-        // let found = this.props.clients.slice(0,20)
-        // let clients = this.props.clients.slice(0, 20)
-        // this.updateState(clients, found)
+
         return (
             <div>
-                {/*  Change clients back to this.props.clients if you want to search in all*/}
                 <Search clients={this.state.justTwentyClients} setClientsToFound={this.setClientsToFound}/>
                 {this.state.index.first === 0 ?
                     null :
                     <button onClick={this.changeTwentyClients} name="previous">See previous 20</button>
                 }
                 <button onClick={this.changeTwentyClients} name="next">See next 20</button>
-                {this.state.justTwentyClients.map(c => <Client updateClient={this.props.updateClient} client={c} key={c._id} getAllClients={this.getAllClients}/>)}
+                {this.state.found.map(c => <Client updateClient={this.props.updateClient} client={c} key={c._id} getAllClients={this.getAllClients}/>)}
             </div>
         );
     }

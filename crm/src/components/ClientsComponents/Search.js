@@ -10,6 +10,7 @@ class Search extends Component {
     }
 
     handleInput = (e) => {
+        debugger
         let newSearch = {...this.state.search}
         newSearch.text = e.target.value
         this.setState({search: newSearch}, this.search(this.state.search.value, newSearch.text))
