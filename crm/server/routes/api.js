@@ -3,8 +3,10 @@ const router = express.Router()
 const Person = require('../models/Person')
 // =========================
 
+// Clients routes below
 router.get("/clients", function(req,res){
     Person.find({}, function(err, response){
+        console.log("found them")
         res.send(response)
     })
 })
@@ -15,6 +17,14 @@ router.put("/updatePerson", function(req,res){
     res.send(response)
     })
 })
+
+//Action routes below
+router.get("/client", function(req,res){
+    Person.find({})
+})
+
+
+
 // =========================
 module.exports = router
 
