@@ -22,3 +22,12 @@ a{
   display:grid; 
   grid-template-columns: repeat(7, 1fr)
 }
+
+.modal{
+  position:absolute;
+  left: 50%;
+  top:50%;
+  background-color: var(--mainTextColor);
+  color: var(--secondTextColor);
+  z-index: 10;
+}

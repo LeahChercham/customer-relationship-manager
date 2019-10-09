@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import Modal from './Modal';
 
 class Client extends Component {
+    constructor(){
+        super()
+        this.state = {
+            showModal : false
+        }
+    }
+
+    openModal = () => {
+        this.setState({showModal : true})
+    }
+    closeModal = () => {
+        this.setState({showModal : false})
+    }
+
     render() {
         let client = this.props.client
         return (
-            <div className="oneClientInformationRow">
+            <div>
+            <div className="oneClientInformationRow" onClick={this.openModal}>
                 <div>{client.name}</div>
                 <div>{client.email}</div>
                 <div>{client.country}</div>
@@ -13,6 +29,9 @@ class Client extends Component {
                 <div>{client.sold ? "Yes" : "No"}</div>
                 <div>{client.owner}</div>
             </div>
+            {this.state.showModal ? <Modal client={client} closeModal={this.closeModal}/> : null}
+            </div>
+
         );
     }
 }
