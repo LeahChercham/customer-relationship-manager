@@ -37,9 +37,8 @@ class App extends Component {
   //  //await this.postAllData()
 }
 
-  updateClient = (newData) => {
-    debugger
-    axios.put("http://localhost:8000/updatePerson", newData)
+  updateClient = async (newData) => {
+    await axios.put("http://localhost:8000/updatePerson", newData)
   }
 
   render(){

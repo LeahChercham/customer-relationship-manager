@@ -29,7 +29,7 @@ class Client extends Component {
                 <div>{client.sold ? "Yes" : "No"}</div>
                 <div>{client.owner}</div>
             </div>
-            {this.state.showModal ? <Modal client={client} closeModal={this.closeModal} updateClient={this.props.updateClient}/> : null}
+            {this.state.showModal ? <Modal client={client} closeModal={this.closeModal} updateClient={this.props.updateClient} getAllClients={this.props.getAllClients}/> : null}
             </div>
 
         );

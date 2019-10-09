@@ -21,11 +21,14 @@ class Modal extends Component {
     }
     
     updateClient = () => {
+        debugger
         let newClient = {...this.props.client}
         newClient.name = this.state.name
         newClient.email = this.state.email
         newClient.country = this.state.country
         this.props.updateClient(newClient)
+        this.props.getAllClients()
+        this.closeModal()
     }
 
     render() {
