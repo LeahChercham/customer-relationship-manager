@@ -4,20 +4,31 @@ class Update extends Component {
     constructor() {
         super()
         this.state = {
-            update: {
-                clientName: "",
+            updateData: {
                 ownerName: "",
-                emailType: ""
+                emailType: "", 
+                declareSale: false,
             }
         }
     }
+    handleChange = (e) =>  {
+        let name = e.target.name
+        let value = e.target.value
+        this.setState({[name] : value})
+    }
+
+    handleClick = (e) => {
+        let name = e.target.name
+        this.props.updateUser(name)
+    }
+
+
     render() {
         return (
             <div>
-
                 <div>
                     Transfer ownership to: 
-                <select value={this.state.update.ownerName} onChange={this.handleChange} name="ownerName">
+                <select value={this.state.updateData.ownerName} onChange={this.handleChange} name="ownerName">
                         <option value="Barton Ramirez">Barton Ramirez</option>
                         <option value="Emily Durham">Emily Durham</option>
                         <option value="Hull Conrad">Hull Conrad</option>
@@ -26,24 +37,24 @@ class Update extends Component {
                         <option value="Martin Massey">Martin Massey</option>
                         <option value="Stepherd Stone">Stepherd Stone</option>
                     </select>
-                    <button>TRANSFER</button>
+                    <button onClick={this.handleClick} name="transferOwner">TRANSFER</button>
                 </div>
                 <div>
                     Send email: 
-                    <select value={this.state.update.emailType} onChange={this.handleChange} name="emailType">
+                    <select value={this.state.updateData.emailType} onChange={this.handleChange} name="emailType">
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
                         <option value="D">D</option>
                     </select>
-                    <button>SEND</button>
+                    <button onClick={this.handleClick} name="sendEmail">SEND</button>
                 </div>
                 <div>
                     Declare sale! 
-                    <button>DECLARE</button>
+                    <button onClick={this.handleClick} name="declareSale">DECLARE</button>
                 </div>
             </div>
-        );
+        ) 
     }
 }
 

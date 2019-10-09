@@ -11,6 +11,7 @@ class Actions extends Component {
             clients: [], 
             updateClient: {},
             addClient: {},
+            showUpdate: false,
         }
     }
 
@@ -32,13 +33,33 @@ class Actions extends Component {
   async componentDidMount(){
     await this.getAllClientsData()}
 
+    updateUser = (action) => {
+        this[action]()
+    }
+
+    showUpdate = (boolean) => {
+        this.setState({showUpdate : boolean})
+    }
+
+
+    transferOwner = () =>  {
+        console.log("transferoooowner")
+    }
+
+    sendEmail = () => {
+        console.log("EEEEMAIL")
+    }
+
+    declareSale = () => {
+        console.log("SALE")
+    }
 
     render() {
         return (
             <div>
                 UPDATE
-                 <ClientsInput getClientToUpdate={this.getClientToUpdate} clients={this.state.clients} />
-                <Update />
+                 <ClientsInput showUpdate={this.showUpdate} getClientToUpdate={this.getClientToUpdate} clients={this.state.clients} />
+                {this.state.showUpdate ? <Update updateUser={this.updateUser}/> : null }
                 <Add />
             </div>
         );

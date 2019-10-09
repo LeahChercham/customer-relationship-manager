@@ -23,6 +23,9 @@ class ClientsInput extends Component {
         this.setState({ client: client }, () => {
             if (key !== undefined) {
                 this.sendClient()
+                this.props.showUpdate(true)
+            } else {
+                this.props.showUpdate(false)
             }
         })
     }
