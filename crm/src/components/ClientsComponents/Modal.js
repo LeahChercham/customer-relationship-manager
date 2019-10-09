@@ -20,13 +20,13 @@ class Modal extends Component {
         this.setState({ [name] : input})
     }
     
-    updateClient = () => {
+    updateClient = async () => {
         debugger
         let newClient = {...this.props.client}
         newClient.name = this.state.name
         newClient.email = this.state.email
         newClient.country = this.state.country
-        this.props.updateClient(newClient)
+        await this.props.updateClient(newClient)
         this.props.getAllClients()
         this.closeModal()
     }
