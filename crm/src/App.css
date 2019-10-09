@@ -20,13 +20,11 @@ a{
   position:sticky;
 }
 .oneClientInformationRow{
-  display:grid; 
-  grid-template-columns: repeat(7, 1fr)
+  justify-items: center;
+  align-content: center;
 }
 
 .clientsHeader{
-  display:grid;
-  grid-template-columns: repeat(7,1fr);
   height: 5vh;
   background-color: yellow;
   justify-items: center;
@@ -34,6 +32,7 @@ a{
 }
 
 .modal{
+  padding: 10vmin;
   position:absolute;
   left: 50%;
   top:50%;
@@ -44,4 +43,15 @@ a{
 
 #clientsTable{
   margin: 5vmin;
+}
+table{
+  width: 100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
 }
