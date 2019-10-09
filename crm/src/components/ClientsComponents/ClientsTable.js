@@ -35,16 +35,14 @@ class ClientsTable extends Component {
 
         this.setState({ index: newIndex }, function() {
             let clients = this.props.clients.slice(this.state.index.first, this.state.index.last)
-            this.setState({ found: clients })
+            this.setState({ found: clients, clients: clients })
         })
     }
-
-
-    
 
     render() {
         return (
             <div>
+                {/*  Change clients back to this.props.clients if you want to search in all*/}
                 <Search clients={this.state.clients} setClientsToFound={this.setClientsToFound}/>
                 {this.state.index.first === 0 ?
                     null :

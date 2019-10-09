@@ -41,7 +41,6 @@ class Search extends Component {
                 <input type="text" placeholder="search" onChange={this.handleInput} value={this.state.search.text}/>
                 <select value={this.state.search.value} onChange={this.handleChange} name="criteria">
                     <option value="name">Name</option>
-                    <option value="surname">Surname</option>
                     <option value="email">Email</option>
                     <option value="owner">Owner</option>
                     <option value="country">Country</option>

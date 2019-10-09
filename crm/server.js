@@ -1,12 +1,12 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
-const path = require("path")
+// const path = require("path")
 const PORT = 8000
 const api = require("./server/routes/api")
 const app = express()
 
-mongoose.connect("mongodb://localhost/crm", {useNewUrlParser:true}, ()=> console.log("Connected to DB"))
+mongoose.connect("mongodb://localhost/CRM", {useNewUrlParser:true}, ()=> console.log("Connected to DB"))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
