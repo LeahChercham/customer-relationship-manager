@@ -39,7 +39,10 @@ class Actions extends Component {
             action: action,
             value : updateData[action],
         }
-        axios.put('http://localhost:8000/actionUpdatePerson', data)
+        axios.put('http://localhost:8000/actionUpdatePerson', data).then(
+            function(response){alert("update successful")}).catch(function(error){
+                alert(error + "Couldn't update")
+            })
         console.log(data)
          
     }
