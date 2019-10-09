@@ -25,7 +25,7 @@ class Clients extends Component {
         // this.state.clients ? clients = this.state.clients : clients = this.props.data
         return (
             <div>
-                <ClientsTable clients={this.props.data}/>
+                <ClientsTable clients={this.props.data} updateClient={this.props.updateClient}/>
             </div>
         );
     }

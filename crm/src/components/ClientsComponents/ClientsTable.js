@@ -49,7 +49,7 @@ class ClientsTable extends Component {
                     <button onClick={this.changeTwentyClients} name="previous">See previous 20</button>
                 }
                 <button onClick={this.changeTwentyClients} name="next">See next 20</button>
-                {this.state.found.map(c => <Client client={c} key={c._id} />)}
+                {this.state.found.map(c => <Client updateClient={this.props.updateClient} client={c} key={c._id} />)}
             </div>
         );
     }

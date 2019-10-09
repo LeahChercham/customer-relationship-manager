@@ -9,6 +9,11 @@ router.get("/clients", function(req,res){
     })
 })
 
+router.put("/updatePerson", function(req,res){
+    let {name, email, country} = req.body
+    Person.findOneAndUpdate({_id : req.body._id } , {name, email, country}, {new:true}, function(err, response){
+    })
+})
 // =========================
 module.exports = router
 

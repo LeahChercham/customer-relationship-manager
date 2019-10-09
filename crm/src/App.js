@@ -37,6 +37,9 @@ class App extends Component {
   //  //await this.postAllData()
 }
 
+  updateClient = (newData) => {
+    axios.put("http://localhost:8000/updatePerson", newData)
+  }
 
   render(){
     return (
@@ -46,7 +49,7 @@ class App extends Component {
   
       {/* Routes below */}
       <Route path="/" exact render={() => <div>Hello</div>}/>
-      <Route path="/clients" exact render={() => <Clients data={this.state.data}/>}/>
+      <Route path="/clients" exact render={() => <Clients data={this.state.data} updateClient={this.updateClient}/>}/>
       <Route path="/actions" exact render={() => <Actions />}/>
       <Route path="/analytics" exact render={() => <Analytics />}/>
   
