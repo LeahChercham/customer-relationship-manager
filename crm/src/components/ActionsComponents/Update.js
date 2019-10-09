@@ -5,8 +5,8 @@ class Update extends Component {
         super()
         this.state = {
             updateData: {
-                ownerName: "",
-                emailType: "", 
+                ownerName: "Barton Ramirez",
+                emailType: "A", 
                 declareSale: false,
             }
         }
@@ -14,12 +14,15 @@ class Update extends Component {
     handleChange = (e) =>  {
         let name = e.target.name
         let value = e.target.value
-        this.setState({[name] : value})
+        let newUpdateData = {...this.state.updateData}
+        newUpdateData[name] = value
+        this.setState({updateData : newUpdateData})
     }
 
     handleClick = (e) => {
         let name = e.target.name
-        this.props.updateUser(name)
+        debugger
+        this.props.updateUser(name, this.state.updateData)
     }
 
 

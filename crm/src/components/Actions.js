@@ -33,8 +33,8 @@ class Actions extends Component {
   async componentDidMount(){
     await this.getAllClientsData()}
 
-    updateUser = (action) => {
-        this[action]()
+    updateUser = (action, data) => {
+        this[action](data)
     }
 
     showUpdate = (boolean) => {
@@ -42,16 +42,16 @@ class Actions extends Component {
     }
 
 
-    transferOwner = () =>  {
-        console.log("transferoooowner")
+    transferOwner = (data) =>  {
+        console.log("transfer" + data.ownerName)
     }
 
-    sendEmail = () => {
-        console.log("EEEEMAIL")
+    sendEmail = (data) => {
+        console.log("EEEEMAIL" + data.emailType)
     }
 
-    declareSale = () => {
-        console.log("SALE")
+    declareSale = (data) => {
+        console.log("SALE" + data.declareSale)
     }
 
     render() {
