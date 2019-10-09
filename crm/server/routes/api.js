@@ -19,10 +19,17 @@ router.put("/updatePerson", function(req,res){
 })
 
 //Action routes below
-router.get("/client", function(req,res){
-    Person.find({})
-})
+// this one only getting back name and id and owner and then set it for actions component
+// router.get("/client", function(req,res){
+//     Person.find({})
+// })
 
+router.put("/actionUpdatePerson", function(req,res){
+    let {_id, action, value} = req.body
+    Person.findOneAndUpdate({_id : _id}, {[action] : value}, {new:true}, function(err, response){
+        res.send(response)
+    })
+})
 
 
 // =========================

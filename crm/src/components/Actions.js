@@ -35,10 +35,11 @@ class Actions extends Component {
 
     updateUser = (action, updateData) => {
         let data = {
-            id : this.state.updateClient.id,
+            _id : this.state.updateClient.id,
             action: action,
             value : updateData[action],
         }
+        axios.put('http://localhost:8000/actionUpdatePerson', data)
         console.log(data)
          
     }
