@@ -20,7 +20,6 @@ class ClientsTable extends Component {
     }
 
     async getAllClientsData () {
-        debugger
     let response = await axios.get("http://localhost:8000/clients")
     let clients = response.data
     let TwentyClients = [...clients]
@@ -35,7 +34,6 @@ class ClientsTable extends Component {
 
 
     setClientsToFound = (found) => {
-        debugger
         this.setState({found:found})
     }
 
@@ -67,9 +65,13 @@ class ClientsTable extends Component {
                 }
                 <button onClick={this.changeTwentyClients} name="next">See next 20</button>
                 <table>
-                    
+                    <thead>
                 <Header />
+                    </thead>
+                    <tbody>
+
                 {this.state.found.map(c => <Client updateClient={this.props.updateClient} client={c} key={c._id} getAllClients={this.getAllClients}/>)}
+                    </tbody>
                     
                 </table>
             </div>

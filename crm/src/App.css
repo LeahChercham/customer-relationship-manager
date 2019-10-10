@@ -33,7 +33,8 @@ a{
 
 .modal{
   padding: 10vmin;
-  position:absolute;
+  position:fixed;
+  display:block ;
   left: 50%;
   top:50%;
   background-color: var(--mainTextColor);

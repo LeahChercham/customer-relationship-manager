@@ -30,7 +30,7 @@ class Search extends Component {
             let value = c[option].toLowerCase()
             if(value.includes(searchArray)){
                 return c
-            }
+            } else {return null}
         })
         them = them.filter(t => t !== undefined)
         this.setState({found: them}, () => this.props.setClientsToFound(them))

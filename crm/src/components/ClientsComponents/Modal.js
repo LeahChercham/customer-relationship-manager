@@ -12,7 +12,6 @@ class Modal extends Component {
     closeModal= () => {
         this.props.closeModal()
     }
-
     
     handleInput = (e) => {
         let name = e.target.name
@@ -21,7 +20,6 @@ class Modal extends Component {
     }
     
     updateClient = async () => {
-        debugger
         let newClient = {...this.props.client}
         newClient.name = this.state.name
         newClient.email = this.state.email
