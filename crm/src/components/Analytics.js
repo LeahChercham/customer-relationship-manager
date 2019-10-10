@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Badges from './AnalyticsComponents/Badges';
+import axios from 'axios'
+import Charts from './AnalyticsComponents/Charts';
 
 class Analytics extends Component {
     constructor() {
@@ -21,7 +23,7 @@ class Analytics extends Component {
     render() {
         return (
             <div>
-                <Badges />
+                <Badges clients={this.state.clients}/>
                 <Charts />
             </div>
         );

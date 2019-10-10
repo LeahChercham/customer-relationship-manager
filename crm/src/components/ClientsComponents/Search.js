@@ -10,27 +10,24 @@ class Search extends Component {
     }
 
     handleInput = (e) => {
-        debugger
         let newSearch = {...this.state.search}
         newSearch.text = e.target.value
         this.setState({search: newSearch}, this.search(this.state.search.value, newSearch.text))
     }
 
     handleChange = (e) => {
-        debugger
         let newSearch = {...this.state.search}
         newSearch.value = e.target.value
         this.setState({search : newSearch}, this.search(this.state.search.value, this.state.search.text))
     }
 
     search = (option, text) => {
-        debugger
         let searchArray = text.toLowerCase()
         let them = this.props.clients.map(c =>{
             let value = c[option].toLowerCase()
             if(value.includes(searchArray)){
                 return c
-            } else {return null}
+            } else {return undefined}
         })
         them = them.filter(t => t !== undefined)
         this.setState({found: them}, () => this.props.setClientsToFound(them))

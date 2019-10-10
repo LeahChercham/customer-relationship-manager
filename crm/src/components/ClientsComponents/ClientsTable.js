@@ -26,7 +26,7 @@ class ClientsTable extends Component {
     let found = [...clients]
     let justTwentyClients = TwentyClients.slice(this.state.index.first, this.state.index.last)
     found = found.slice(this.state.index.first, this.state.index.last)
-    this.setState({clients : clients, justTwentyClients: justTwentyClients, found:found})
+    await this.setState({clients : clients, justTwentyClients: justTwentyClients, found:found})
   }
 
   async componentDidMount(){
@@ -55,7 +55,6 @@ class ClientsTable extends Component {
 
 
     render() {
-
         return (
             <div id="clientsTable">
                 <Search clients={this.state.justTwentyClients} setClientsToFound={this.setClientsToFound}/>
