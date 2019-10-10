@@ -7,11 +7,11 @@ import OutstandingClients from './BadgesComponents/OutstandingClients';
 class Badges extends Component {
     render() {
         return (
-            <div>
+            <div className="badgesContainer">
                 <NewClients clients={this.props.clients}/>
-                <HottestCountry />
-                <EmailsSent />
-                <OutstandingClients />
+                <EmailsSent clients={this.props.clients}/>
+                <OutstandingClients clients={this.props.clients}/>
+                <HottestCountry clients={this.props.clients}/>
             </div>
         );
     }

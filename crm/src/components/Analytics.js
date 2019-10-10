@@ -24,7 +24,8 @@ class Analytics extends Component {
         return (
             <div>
                 <Badges clients={this.state.clients}/>
-                <Charts />
+            <hr/>
+                <Charts clients={this.state.clients}/>
             </div>
         );
     }

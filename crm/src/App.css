@@ -56,3 +56,11 @@ table, th, td {
 th, td {
   padding: 15px;
 }
+
+.badgesContainer{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+  justify-content: center;
+  
+}

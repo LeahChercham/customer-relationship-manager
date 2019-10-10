@@ -3,11 +3,11 @@ import moment from 'moment';
 
 class NewClients extends Component {
     render() {
-        // test data
+        // ==== Test Data
         // let currentMonth = "april"
         // let yyear = 2018
         // let currentYear = yyear.toString(10)
-
+        // ================================
 
         let currentMonth = new Date().toLocaleString('en-GB', { month: 'long' }).toLowerCase()
         let currentYear = new Date().getFullYear().toString(10)
@@ -19,8 +19,6 @@ class NewClients extends Component {
                 return c
             }
         }).length
-
-        console.log(numberOfNewClients)
 
         return (
             <div className="badgeDiv">
