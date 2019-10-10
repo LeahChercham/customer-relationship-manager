@@ -9,7 +9,7 @@ class NewClients extends Component {
         // let currentYear = yyear.toString(10)
 
 
-        let currentMonth = new Date().toLocaleString('en-GB', { month: 'long' });
+        let currentMonth = new Date().toLocaleString('en-GB', { month: 'long' }).toLowerCase()
         let currentYear = new Date().getFullYear().toString(10)
 
         let numberOfNewClients = this.props.clients.filter(c => {
