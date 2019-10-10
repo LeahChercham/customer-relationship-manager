@@ -40,27 +40,36 @@ class SalesBy extends Component {
         // All clients where key sold = true
         let clientsSoldTrue = this.props.clients.filter(c => c.sold === true)
         // SalesBy final object with keys: month, owner, emailType, country with a count
-        this.populateSalesBy(clientsSoldTrue, "owner")
+        // this.populateSalesBy(clientsSoldTrue, "owner")
         this.populateSalesBy(clientsSoldTrue, "emailType")
         this.populateSalesBy(clientsSoldTrue, "country")
         this.populateSalesByMonth("firstContact")
+        this.populateSalesByOwner("owner")
 
         console.log(this.state.salesBy)
     }
 
     populateSalesByMonth = (property) => {
         let monthClients = this.props.clients.filter(c => c.sold === true)
-        monthClients.forEach(c => c.firstContact = moment(c.firstContact).format('MMMM').toLowerCase())
+
+        monthClients.forEach(c => c.firstContact = moment(c.firstContact).format('MM'))
         this.populateSalesBy(monthClients, property)
     }
 
+    populateSalesByOwner = (property) => {
+        let ownerClients = this.props.clients.filter(c => c.sold === true)
+        ownerClients.forEach(c => {
+            c.owner = c.owner.split(" ")[0]})
+        this.populateSalesBy(ownerClients, property)
+    }
+    
     populateSalesBy = (clientsSoldTrue, property) => {
         let groupedBy = this.props.groupBy(clientsSoldTrue, property)
         let keys = Object.keys(groupedBy)
+        keys.sort()
         let salesBy = { ...this.state.salesBy }
         keys.forEach(k => {
             let propertyObject = { name: k, count: groupedBy[k].length }
-            // let propertyObject = { [k]: groupedBy[k].length }
             salesBy[property].push(propertyObject)
         })
         this.setState({ salesBy: salesBy })
@@ -83,7 +92,6 @@ class SalesBy extends Component {
 
     }
     render() {
-        debugger
         let options = Object.keys(this.state.salesBy)
         return (
             <div>
@@ -96,10 +104,12 @@ class SalesBy extends Component {
                 {this.state.data === undefined ?
                     <div></div> :
 
-                    <BarChart width={850} height={300} data={this.state.salesBy[this.state.data]}>
-                        <Bar dataKey="count" fill='#8884d8' />
+                    <BarChart width={1000} height={300} data={this.state.salesBy[this.state.data]}>
+                        <Bar dataKey="count" fill='#8884d8' barSize={30}/>
                         <XAxis dataKey="name" className="xAxisName"/>
                         <YAxis />
+                        <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
                     </BarChart>
                     
                 }
