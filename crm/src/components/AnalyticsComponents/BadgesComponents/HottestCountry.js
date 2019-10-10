@@ -2,21 +2,13 @@ import React, { Component } from 'react';
 
 class HottestCountry extends Component {
 
-    groupByCountry = (array, key) => {
-        return array.reduce((result, currentValue) => {
-            (result[currentValue[key]] = result[currentValue[key]] || []).push(
-                currentValue
-            )
-            return result
-        }, {})
-    }
+
 
     render() {
         let soldIsTrueClients = this.props.clients.filter(c => c.sold === true)
         let country =""
         if(soldIsTrueClients.length > 0){
-            let groupedByCountry = this.groupByCountry(soldIsTrueClients, "country")
-            console.log(groupedByCountry)
+            let groupedByCountry = this.props.groupBy(soldIsTrueClients, "country")
             let countries = Object.keys(groupedByCountry)
             let firstCountry = countries[0]
             let countryArray = groupedByCountry[firstCountry]

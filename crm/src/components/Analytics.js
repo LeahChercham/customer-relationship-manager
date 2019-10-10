@@ -11,6 +11,15 @@ class Analytics extends Component {
         }
     }
 
+    groupBy = (array, key) => {
+        return array.reduce((result, currentValue) => {
+            (result[currentValue[key]] = result[currentValue[key]] || []).push(
+                currentValue
+            )
+            return result
+        }, {})
+    }
+
     async getAllClientsData() {
         let response = await axios.get("http://localhost:8000/clients")
         this.setState({ clients: response.data })
@@ -23,9 +32,9 @@ class Analytics extends Component {
     render() {
         return (
             <div>
-                <Badges clients={this.state.clients}/>
+                <Badges groupBy={this.groupBy} clients={this.state.clients}/>
             <hr/>
-                <Charts clients={this.state.clients}/>
+                <Charts groupBy={this.groupBy} clients={this.state.clients}/>
             </div>
         );
     }

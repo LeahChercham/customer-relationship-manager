@@ -7,7 +7,7 @@ class Charts extends Component {
         return (
             <div>
                 <TopEmployees clients={this.props.clients} />
-                <SalesBy clients={this.props.clients} />
+                <SalesBy groupBy={this.props.groupBy} clients={this.props.clients} />
                 
             </div>
         );

@@ -11,7 +11,7 @@ class Badges extends Component {
                 <NewClients clients={this.props.clients}/>
                 <EmailsSent clients={this.props.clients}/>
                 <OutstandingClients clients={this.props.clients}/>
-                <HottestCountry clients={this.props.clients}/>
+                <HottestCountry groupBy={this.props.groupBy}  clients={this.props.clients}/>
             </div>
         );
     }
