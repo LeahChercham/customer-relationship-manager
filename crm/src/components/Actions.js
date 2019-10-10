@@ -57,7 +57,10 @@ class Actions extends Component {
                 UPDATE
                  <ClientsInput showUpdate={this.showUpdate} getClientToUpdate={this.getClientToUpdate} clients={this.state.clients} />
                 {this.state.showUpdate ? <Update updateUser={this.updateUser}/> : null }
-                <Add />
+                <br />
+                <hr/>
+                ADD
+                <Add getAllClients={this.getAllClients}/>
             </div>
         );
     }

@@ -31,6 +31,20 @@ router.put("/actionUpdatePerson", function(req,res){
     })
 })
 
+router.post("/addNewClient", function(req,res){
+    let {name, country, owner} = req.body
+    let person = new Person({
+        name,
+        owner,
+        country,
+        emailType: null,
+        firstContact : new Date(),
+        sold:false,
+        email: "",
+    })
+    person.save()
+    res.end()
+})
 
 // =========================
 module.exports = router
