@@ -56,12 +56,12 @@ class Actions extends Component {
         return (
             <div className="actionsDiv">
                 <div className="actionUpdateDiv">
-                    <h3>UPDATE</h3>
+                    <div className="titleActions">UPDATE</div>
                     <ClientsInput showUpdate={this.showUpdate} getClientToUpdate={this.getClientToUpdate} clients={this.state.clients} />
                     {this.state.showUpdate ? <Update updateUser={this.updateUser} /> : null}
                 </div>
                 <div className="actionAddDiv">
-                    <h3>ADD</h3>
+                    <div className="titleActions">ADD</div>
                     <Add getAllClients={this.getAllClients} />
                 </div>
             </div>

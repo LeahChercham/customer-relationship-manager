@@ -21,7 +21,8 @@ select{
   --secondTextColor:white;
 }
 
-h3{
+.titleActions{
+  font-size: 130%;
   letter-spacing: 10px;
   color: var(--darkBorderColor)
 }
@@ -152,12 +153,13 @@ tr:hover{
  .actionsDiv{
 display: grid;
 grid-template-rows: 1fr 1fr;
-margin: 5vmax;
+margin: 2vmin 10vmin 0 10vmin;
 }
 
 .actionUpdateDiv{
 display: grid;
 justify-items: left;
+grid-template-rows: 1fr 2fr 6fr;
 }
 .actionAddDiv{
   display: grid;
@@ -217,6 +219,15 @@ padding: 10px;
   background-color: var(--darkBorderColor);
   color: var(--secondTextColor);
 }
+/* ====== Add new User ====== */
+
+.newUserInfos{
+  width: 100%;
+display: grid;
+gap: 10px;
+padding: 10px;
+}
+
 /* ========= Analytics ============ */
 /* Badges */
 .badgesContainer{
