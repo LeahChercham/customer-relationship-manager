@@ -37,13 +37,14 @@ class TopOwners extends Component {
 
     render() {
         return (
-            <div>
+            <div className="chartContainer">
+                <h3>Top Employees:</h3> 
                 {this.state.topOwners.length > 0 ?
-                <BarChart width={500} height={300} data={this.state.topOwners}>
+                <BarChart width={500} height={150} data={this.state.topOwners}>
                     <Bar dataKey="count" fill='#8884d8' barSize={30} />
                     <XAxis dataKey="name" className="xAxisName" />
                     <YAxis  />
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+                    <Tooltip wrapperStyle={{ width: 200, backgroundColor: '#ccc' }} />
                 </BarChart>
                 : 
                 <div></div>

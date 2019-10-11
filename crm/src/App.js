@@ -14,7 +14,7 @@ class App extends Component {
     }
   }
 
-  // do not uncomment
+  // DO NOT UNCOMMENT
   // // // async postAllData(){
   // // //   await axios.post("http://localhost:8000/person")
   // // // }
@@ -44,8 +44,8 @@ class App extends Component {
   render(){
     return (
       <Router>
-      <div className="App">
       <Navbar />
+      <div className="App">
   
       {/* Routes below */}
       <Route path="/clients" exact render={() => <Clients data={this.state.data} updateClient={this.updateClient}/>}/>

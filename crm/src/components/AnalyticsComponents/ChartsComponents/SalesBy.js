@@ -45,6 +45,12 @@ class SalesBy extends Component {
         this.populateSalesBy(clientsSoldTrue, "country")
         this.populateSalesByMonth("firstContact")
         this.populateSalesByOwner("owner")
+        // let data = this.state.salesBy.country
+        // if (data === undefined) {
+        //     return
+        // }
+        // console.log(data)
+        // this.setState({ data: data })
     }
 
     populateSalesByMonth = (property) => {
@@ -58,10 +64,11 @@ class SalesBy extends Component {
         let clients = [...this.props.clients]
         let ownerClients = clients.filter(c => c.sold === true)
         ownerClients.forEach(c => {
-            c.owner = c.owner.split(" ")[0]})
+            c.owner = c.owner.split(" ")[0]
+        })
         this.populateSalesBy(ownerClients, property)
     }
-    
+
     populateSalesBy = (clientsSoldTrue, property) => {
         let groupedBy = this.props.groupBy(clientsSoldTrue, property)
         let keys = Object.keys(groupedBy)
@@ -93,24 +100,25 @@ class SalesBy extends Component {
     render() {
         let options = Object.keys(this.state.salesBy)
         return (
-            <div>
-                Sales by:
-                <input type="text" list="salesByOptions" onChange={this.handleChange} />
-                <datalist id="salesByOptions">
-                    {options.map(o => <option value={o} />)}
-                </datalist>
+            <div className="chartContainer">
+                <div>
+                    <h3>Sales by: </h3>
+                    <input type="text" list="salesByOptions" onChange={this.handleChange} placeholder="Select" />
+                    <datalist id="salesByOptions">
+                        {options.map(o => <option value={o} />)}
+                    </datalist>
+                </div>
 
                 {this.state.data === undefined ?
                     <div></div> :
 
                     <BarChart width={1000} height={300} data={this.state.salesBy[this.state.data]}>
-                        <Bar dataKey="count" fill='#8884d8' barSize={30}/>
-                        <XAxis dataKey="name" className="xAxisName"/>
+                        <Bar dataKey="count" fill='#8884d8' barSize={30} />
+                        <XAxis dataKey="name" className="xAxisName" />
                         <YAxis />
                         <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
                     </BarChart>
-                    
+
                 }
             </div>
         );

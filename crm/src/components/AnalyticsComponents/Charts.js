@@ -5,9 +5,9 @@ import TopOwners from './ChartsComponents/TopOwners';
 class Charts extends Component {
     render() {
         return (
-            <div>
-                <SalesBy groupBy={this.props.groupBy} clients={this.props.clients} />
+            <div className="chartsContainer">
                 <TopOwners groupBy={this.props.groupBy} clients={this.props.clients}/>
+                <SalesBy groupBy={this.props.groupBy} clients={this.props.clients} />
             </div>
         );
     }

@@ -23,6 +23,7 @@ select{
 
 h3{
   letter-spacing: 10px;
+  color: var(--darkBorderColor)
 }
 a{
   text-decoration: none;
@@ -148,30 +149,74 @@ tr:hover{
 
 /* ================= Actions ================== */
 
-.actionsDiv{
-  height:100%;
-  width: 100%;
+ .actionsDiv{
 display: grid;
 grid-template-rows: 1fr 1fr;
-justify-content: left;
-margin: 4vmax;
-padding: 1vmax;
+margin: 5vmax;
 }
 
 .actionUpdateDiv{
 display: grid;
 justify-items: left;
 }
-
-.updateOptions{
-  display: flex;
-  justify-content: space-evenly;
-}
 .actionAddDiv{
   display: grid;
   justify-items: left;
 }
 
+.actionsUpdateContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+justify-self: start;
+width: 100%;
+border-bottom: 3px solid var(--secondTextColor);
+padding: 10px;
+}
+
+.allUpdateOptions{
+  display: grid;
+  width: 100%;
+  border-bottom: 5px solid var(--secondTextColor);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+.updateOptions{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: left;
+}
+.gridCol3{
+  grid-column: 3;
+}
+
+.clientToUpdate{
+  justify-self: start;
+  font-size: 120%;
+}
+.middleColumn{
+  justify-self: start;
+}
+
+.justifyStart{justify-self: start;}
+
+.updateButton{
+  background-color: var(--borderColor);
+  color: var(--mainTextColor);
+  width: 40%;
+  justify-self: center;
+  align-self: center;
+  padding: 7px;
+  border:none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.updateButton:hover{
+  background-color: var(--darkBorderColor);
+  color: var(--secondTextColor);
+}
 /* ========= Analytics ============ */
 /* Badges */
 .badgesContainer{
@@ -191,7 +236,7 @@ justify-items: left;
   justify-content: center;
 }
 .badgeDiv{
-  margin:15px;
+  margin:25px;
   display: grid;
   grid-template-columns: 2fr 6fr;
 }
@@ -203,4 +248,19 @@ justify-items: left;
   display: grid;
   align-items: center;
   justify-items: left;
+}
+
+/*  ====== Charts =========== */
+.chartsContainer{
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.chartContainer{
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  margin: 20px;
+  border-top: 3px solid var(--borderColor);
 }

@@ -31,12 +31,16 @@ class ClientsInput extends Component {
     }
     render() {
         return (
-            <div>
-                Client:
-                <input type="text" placeholder="Client Name" list="data" onChange={this.handleChange} />
-                <datalist id="data">
-                    {this.props.clients.map(c => <option value={c.name} key={c._id} />)}
-                </datalist>
+            <div className="actionsUpdateContainer">
+                <div className="clientToUpdate">
+                    Client to update:
+                </div>
+                <div className="middleColumn">
+                    <input type="text" placeholder="Client Name" list="data" onChange={this.handleChange} />
+                    <datalist id="data">
+                        {this.props.clients.map(c => <option value={c.name} key={c._id} />)}
+                    </datalist>
+                </div>
             </div>
         );
     }
