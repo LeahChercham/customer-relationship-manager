@@ -36,7 +36,7 @@ class Update extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="updateOptions">
                     Transfer ownership to: 
                 <select value={this.state.updateData.owner} onChange={this.handleChange} name="owner">
                         <option value="Barton Ramirez">Barton Ramirez</option>
@@ -49,7 +49,7 @@ class Update extends Component {
                     </select>
                     <button onClick={this.handleClick} name="owner">TRANSFER</button>
                 </div>
-                <div>
+                <div className="updateOptions">
                     Send email: 
                     <select value={this.state.updateData.emailType} onChange={this.handleChange} name="emailType">
                         <option value="A">A</option>
@@ -59,7 +59,7 @@ class Update extends Component {
                     </select>
                     <button onClick={this.handleClick} name="emailType">SEND</button>
                 </div>
-                <div>
+                <div className="updateOptions">
                     Declare sale! 
                     <button onClick={this.handleClick} name="sold">DECLARE</button>
                 </div>

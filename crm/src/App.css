@@ -5,6 +5,15 @@ body {
   --borderColor: #b8cecd;
   --darkBorderColor: #325b82;
 }
+button{
+  cursor: pointer;
+}
+select{
+  cursor:pointer;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid var(--borderColor);
+}
 
 .App {
   text-align: center;
@@ -12,6 +21,9 @@ body {
   --secondTextColor:white;
 }
 
+h3{
+  letter-spacing: 10px;
+}
 a{
   text-decoration: none;
   color: var(--mainTextColor);
@@ -21,6 +33,12 @@ a{
 
 a:hover{
   color: var(--borderColor);
+}
+
+input{
+  background: inherit;
+  border: none;
+  border-bottom: 2px solid var(--borderColor);
 }
 
 .App-navbar{
@@ -41,6 +59,7 @@ a:hover{
 }
 
 
+
 .showMoreButton{
 background-color: inherit;
 border:3px solid var(--borderColor) ;
@@ -57,16 +76,30 @@ margin: 5px;
 }
 
 .modal{
-  padding: 10vmin;
+  height:25%;
+  width:25%;
   position:fixed;
-  display:block ;
-  left: 50%;
-  top:50%;
-  background-color: var(--mainTextColor);
+  display:grid ;
+  padding: 10px;
+  top: 37%;
+  left: 37%;
+  background-color: var(--borderColor);
+  border: 5px solid var(--darkBorderColor);
+  border-radius: 10px;
   color: var(--secondTextColor);
   z-index: 10;
+  align-content: left;
+}
+#closeModalButton{
+  background: none;
+  border: none;
+  font-weight: bolder;
+  color: var(--secondTextColor);
 }
 
+#closeModalButton:hover{
+  color: var(--mainTextColor)
+}
 #clientsTable{
   margin: 5vmin;
 }
@@ -106,11 +139,41 @@ th{
 th, td {
   padding: 15px;
 }
+tr:hover{
+  background-color:var(--borderColor);
+  cursor:pointer;
+}
 
 .badgesContainer{
   display:grid;
   grid-template-columns: repeat(4, 1fr);
   align-content: center;
   justify-content: center;
-  
+
+}
+
+/* ================= Actions ================== */
+
+.actionsDiv{
+  height:100%;
+  width: 100%;
+display: grid;
+grid-template-rows: 1fr 1fr;
+justify-content: left;
+margin: 4vmax;
+padding: 1vmax;
+}
+
+.actionUpdateDiv{
+display: grid;
+justify-items: left;
+}
+
+.updateOptions{
+  display: flex;
+  justify-content: space-evenly;
+}
+.actionAddDiv{
+  display: grid;
+  justify-items: left;
 }

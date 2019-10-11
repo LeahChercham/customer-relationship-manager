@@ -33,7 +33,7 @@ class Modal extends Component {
         return (
             <div className="modal">
                 <div>
-                <span><button onClick={this.closeModal}>X</button></span>
+                <span ><button id="closeModalButton" onClick={this.closeModal}>X</button></span>
                     </div>               
                 <input type="text" name="name" placeholder={this.props.client.name} value={this.state.name} onChange={this.handleInput}/>
                 <br/>
