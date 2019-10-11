@@ -45,8 +45,6 @@ class SalesBy extends Component {
         this.populateSalesBy(clientsSoldTrue, "country")
         this.populateSalesByMonth("firstContact")
         this.populateSalesByOwner("owner")
-
-        console.log(this.state.salesBy)
     }
 
     populateSalesByMonth = (property) => {
@@ -57,7 +55,8 @@ class SalesBy extends Component {
     }
 
     populateSalesByOwner = (property) => {
-        let ownerClients = this.props.clients.filter(c => c.sold === true)
+        let clients = [...this.props.clients]
+        let ownerClients = clients.filter(c => c.sold === true)
         ownerClients.forEach(c => {
             c.owner = c.owner.split(" ")[0]})
         this.populateSalesBy(ownerClients, property)
@@ -107,7 +106,7 @@ class SalesBy extends Component {
                     <BarChart width={1000} height={300} data={this.state.salesBy[this.state.data]}>
                         <Bar dataKey="count" fill='#8884d8' barSize={30}/>
                         <XAxis dataKey="name" className="xAxisName"/>
-                        <YAxis />
+                        {/* <YAxis /> */}
                         <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
                         <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
                     </BarChart>

@@ -58,11 +58,13 @@ class ClientsTable extends Component {
         return (
             <div id="clientsTable">
                 <Search clients={this.state.justTwentyClients} setClientsToFound={this.setClientsToFound}/>
+                <div className="navigateClientsButtons">
                 {this.state.index.first === 0 ?
                     null :
-                    <button onClick={this.changeTwentyClients} name="previous">See previous 20</button>
+                    <button className="showMoreButton" onClick={this.changeTwentyClients} name="previous">&#x0003C; {this.state.index.first}</button>
                 }
-                <button onClick={this.changeTwentyClients} name="next">See next 20</button>
+                <button className="showMoreButton" onClick={this.changeTwentyClients} name="next">{this.state.index.last} &#x0003E;</button>
+                </div>
                 <table>
                     <thead>
                 <Header />

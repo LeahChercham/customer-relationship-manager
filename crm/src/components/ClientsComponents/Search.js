@@ -35,9 +35,9 @@ class Search extends Component {
 
     render() {
         return (
-            <div>
+            <div className="searchClient">
                 <input type="text" placeholder="search" onChange={this.handleInput} value={this.state.search.text}/>
-                <select value={this.state.search.value} onChange={this.handleChange} name="criteria">
+                <select value={this.state.search.value} onChange={this.handleChange} name="criteria" className="clientsNameInput">
                     <option value="name">Name</option>
                     <option value="email">Email</option>
                     <option value="owner">Owner</option>

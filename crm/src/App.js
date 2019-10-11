@@ -48,7 +48,6 @@ class App extends Component {
       <Navbar />
   
       {/* Routes below */}
-      <Route path="/" exact render={() => <div>Hello</div>}/>
       <Route path="/clients" exact render={() => <Clients data={this.state.data} updateClient={this.updateClient}/>}/>
       <Route path="/actions" exact render={() => <Actions />}/>
       <Route path="/analytics" exact render={() => <Analytics />}/>

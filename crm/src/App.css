@@ -1,13 +1,26 @@
+/* ============================= Basics */
+
+body {
+  background-color: #e9f1f7;
+  --borderColor: #b8cecd;
+  --darkBorderColor: #325b82;
+}
+
 .App {
   text-align: center;
   --mainTextColor: black;
   --secondTextColor:white;
-  background-color: lightgrey;
 }
 
 a{
   text-decoration: none;
-  color: var(--secondTextColor)
+  color: var(--mainTextColor);
+  font-size: 150%;
+  cursor: pointer;
+}
+
+a:hover{
+  color: var(--borderColor);
 }
 
 .App-navbar{
@@ -15,20 +28,32 @@ a{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: black;
-  color:white;
+  background-color: white;
+  color:black;
   position:sticky;
+  top:0;
+  border-bottom: 5px solid var(--borderColor);
+  z-index: 10;
 }
 .oneClientInformationRow{
   justify-items: center;
   align-content: center;
 }
 
-.clientsHeader{
-  height: 5vh;
-  background-color: yellow;
-  justify-items: center;
-  align-content: center;
+
+.showMoreButton{
+background-color: inherit;
+border:3px solid var(--borderColor) ;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+padding: 5px;
+font: inherit;
+font-size: 80%;
+cursor:pointer;
+margin: 5px;
+}
+.showMoreButton:hover{
+  background-color: var(--darkBorderColor);
+  color: white;
 }
 
 .modal{
@@ -45,14 +70,39 @@ a{
 #clientsTable{
   margin: 5vmin;
 }
+.searchClient{
+display: flex;
+height:35px;
+
+}
+.clientsNameInput{
+  margin-left: 20px;
+}
+.navigateClientsButtons{
+position: relative;
+margin-bottom: 10px;
+z-index: 0;
+}
+
 table{
   width: 100%;
 }
+
 table, th, td {
-  border: 1px solid black;
+  border-bottom: 2px solid var(--borderColor);
   border-collapse: collapse;
+  text-align: left;
 }
 
+th{
+  height: 4vh;
+  background-color: var(--darkBorderColor);
+  color: white;
+  justify-items: center;
+  align-content: center;
+  position: sticky;
+  top:7vh;
+}
 th, td {
   padding: 15px;
 }
@@ -63,8 +113,4 @@ th, td {
   align-content: center;
   justify-content: center;
   
-}
-
-.xAxisName{
-  font-size: 70%;
 }
