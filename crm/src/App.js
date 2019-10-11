@@ -6,6 +6,7 @@ import Clients from './components/Clients';
 import Actions from './components/Actions';
 import Analytics from './components/Analytics';
 import axios from 'axios'
+import Home from './components/Home';
 class App extends Component {
   constructor(){
     super()
@@ -48,6 +49,7 @@ class App extends Component {
       <div className="App">
   
       {/* Routes below */}
+      <Route path="/" exact render={() => <Home />}/>
       <Route path="/clients" exact render={() => <Clients data={this.state.data} updateClient={this.updateClient}/>}/>
       <Route path="/actions" exact render={() => <Actions />}/>
       <Route path="/analytics" exact render={() => <Analytics />}/>
@@ -55,7 +57,6 @@ class App extends Component {
       </div>
       </Router>
     );
-
   }
 }
 

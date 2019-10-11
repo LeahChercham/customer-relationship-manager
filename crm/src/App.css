@@ -5,6 +5,13 @@ body {
   --borderColor: #b8cecd;
   --darkBorderColor: #325b82;
 }
+
+.appName{
+  color: var(--darkBorderColor);
+    margin-top: 20%;
+    font-size: 350%;
+}
+
 button{
   cursor: pointer;
 }
