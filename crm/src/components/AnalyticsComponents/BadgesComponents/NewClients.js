@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-
+import { FaChartLine } from 'react-icons/fa'
 class NewClients extends Component {
     render() {
         // ==== Test Data
@@ -22,9 +22,11 @@ class NewClients extends Component {
 
         return (
             <div className="badgeDiv">
-                <div className="badgeIcon">ICON</div>
-                <div className="badgeValue">{numberOfNewClients}</div>
-                <div className="badgeInfo">New {currentMonth} Clients</div>
+                <div className="badgeIcon"><FaChartLine /></div>
+                <div className="badgeText">
+                    <div className="badgeValue">{numberOfNewClients}</div>
+                    <div className="badgeInfo">New Clients in {currentMonth}</div>
+                </div>
             </div>
         );
     }

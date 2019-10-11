@@ -33,7 +33,6 @@ class Analytics extends Component {
         return (
             <div>
                 <Badges groupBy={this.groupBy} clients={this.state.clients}/>
-            <hr/>
                 <Charts groupBy={this.groupBy} clients={this.state.clients}/>
             </div>
         );

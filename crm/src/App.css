@@ -144,13 +144,7 @@ tr:hover{
   cursor:pointer;
 }
 
-.badgesContainer{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-content: center;
-  justify-content: center;
 
-}
 
 /* ================= Actions ================== */
 
@@ -175,5 +169,38 @@ justify-items: left;
 }
 .actionAddDiv{
   display: grid;
+  justify-items: left;
+}
+
+/* ========= Analytics ============ */
+/* Badges */
+.badgesContainer{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+  justify-content: center;
+
+}
+.badgeIcon{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: cornflowerblue;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+.badgeDiv{
+  margin:15px;
+  display: grid;
+  grid-template-columns: 2fr 6fr;
+}
+.badgeValue{
+  font-size: 150%;
+  font-weight: bolder;
+}
+.badgeText{
+  display: grid;
+  align-items: center;
   justify-items: left;
 }
